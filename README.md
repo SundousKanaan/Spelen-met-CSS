@@ -1,2 +1,3 @@
 # Spelen-met-CSS
-A repo for sparse works built with CSS
+[Naruto](https://sundouskanaan.github.io/Spelen-met-CSS/Naruto/index.html)
+[OREO](https://sundouskanaan.github.io/Spelen-met-CSS/OREO/index.html)
