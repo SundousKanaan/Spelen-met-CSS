@@ -1,0 +1,653 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    caret-color: transparent;
+}
+
+:root {
+    --hair: yellow;
+    --hair-shadow: rgb(228, 205, 0);
+
+    --eyes: rgb(0, 183, 255);
+    --eyes-shadow: rgb(0, 78, 247);
+
+    --skin: rgb(252, 220, 205);
+    /* --skin:red ; */
+    --skin-shadow: rgb(228, 180, 157);
+
+    --protector: rgb(41, 41, 41);
+    --protector-shadow: rgb(27, 27, 27);
+
+    --inking: black;
+    --inking-size: .4em;
+
+    --white-shadow: rgb(189, 189, 189);
+
+    --kurama-eyes: red;
+    --kurama-eyes-shadow: rgb(152, 0, 0);
+
+    --kurama: radial-gradient(rgb(0, 0, 0) 30%, var(--kurama-eyes) 30% 50%, white);
+    --kurama-shadow: inset -.2em -.5em .5em var(--kurama-eyes-shadow);
+}
+
+/* @media (prefers-color-scheme: dark) {
+    :root{
+        --hair: green;
+        --hair-shadow: rgb(0, 64, 0);
+    }
+} */
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    place-content: center;
+
+    background-image: url(https://wallpaperaccess.com/full/2803689.jpg);
+    background-size: cover;
+
+    overflow: hidden;
+}
+
+h1 {
+    width: 100%;
+    font-family: 'Ninja Naruto', sans-serif;
+    font-size: 7em;
+    text-align: center;
+    color: transparent;
+    background: -webkit-linear-gradient(45deg, var(--hair), rgb(255, 157, 0), red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+
+    /* *************** */
+
+    /* text-shadow: -.05em .05em .05em rgb(0, 0, 0); */
+
+    /* text-shadow: -.5px -109px .1em rgb(5, 36, 100); */
+}
+
+h1 {
+    --shadow: black;
+    animation: Textshadow 2s infinite linear both;
+}
+
+@keyframes Textshadows {
+    0% {
+        filter: drop-shadow(-.05em .05em .05em var(--shadow));
+        transform: rotate(5deg);
+    }
+
+    25% {
+        filter: drop-shadow(-.05em -.05em 0 var(--shadow));
+    }
+
+    50% {
+        filter: drop-shadow(.05em -.05em .05em var(--shadow));
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        filter: drop-shadow(.05em .05em 0 var(--shadow));
+    }
+
+    100% {
+        filter: drop-shadow(-.05em .05em 0 var(--shadow));
+        transform: rotate(5deg);
+    }
+}
+
+section {
+    width: 30em;
+    height: 45em;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    animation: fly 1.5s -2s infinite linear both;
+
+
+
+    /* background-color: rgb(254, 87, 134); */
+    /* box-shadow: 1em 1em 1em rgb(0, 0, 0); */
+
+
+
+    /* filter: drop-shadow(1em 1em .5em yellow); */
+
+    /* filter: drop-shadow(2em 2em 0 rgb(0, 0, 0)); */
+
+    /* filter: Invert(100%); */
+
+    /* filter: hue-rotate(110deg);      /* green */
+    /* filter: hue-rotate(240deg);      blue */
+
+}
+
+/* hue colors circle: https://miro.medium.com/max/1400/1*0iw7ymhZXKuggiTelXgzGQ.jpeg */
+
+section:hover {
+    animation-duration: .1s;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(3em);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shadow {
+    0% {
+        transform: scale(.8);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(.8);
+    }
+}
+
+
+
+/* face */
+
+section>div {
+    width: 100%;
+    height: 40%;
+
+    background-image: radial-gradient(at 50% 45%, var(--inking) 1%, var(--skin) 1.5%);
+
+    border-right: var(--inking-size) solid var(--inking);
+    border-bottom: var(--inking-size) solid var(--inking);
+    border-left: var(--inking-size) solid var(--inking);
+    border-radius: 10% 10% 50% 50% / 0% 0% 50% 50%;
+
+    position: absolute;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: inset 0 1.5em .4em var(--skin-shadow),
+        inset -.5em -.5em .4em var(--skin-shadow);
+}
+
+
+/* face lines */
+
+section>div>span {
+    display: block;
+    width: 6em;
+    height: 1em;
+    position: absolute;
+    bottom: 30%;
+
+    transform-origin: left;
+    transform: rotate(-20deg);
+
+    border-radius: 50%;
+    border: solid var(--inking-size);
+    border-color: var(--inking) transparent transparent transparent;
+}
+
+section:hover>div>span{
+    --inking:var(--kurama-eyes-shadow);
+}
+
+section>div>span:first-of-type {
+    left: 0;
+}
+
+section>div>span:nth-of-type(2) {
+    bottom: 20%;
+    left: 1.5em;
+    transform: rotate(-25deg) scaleX(.7);
+}
+
+section>div>span:nth-of-type(3) {
+    bottom: 10%;
+    left: 3.5em;
+    transform: rotate(-35deg) scaleX(.7);
+}
+
+section>div>span:nth-of-type(4) {
+    bottom: 40%;
+    right: 0;
+    transform: rotate(20deg);
+}
+
+section>div>span:nth-of-type(5) {
+    bottom: 28%;
+    right: -.2em;
+    transform: rotate(25deg) scaleX(.7);
+}
+
+section>div>span:nth-of-type(6) {
+    bottom: 22%;
+    right: 1.3em;
+    transform: rotate(35deg) scaleX(.7);
+}
+
+
+section:hover::before,
+section:hover::after {
+    content: "";
+    display: block;
+    width: 6em;
+    height: 1.5em;
+
+    background-color: red;
+    border: solid .3em white;
+
+    position: absolute;
+    right: -9em;
+    top: 17%;
+
+    transform-origin: left;
+    transform: rotate(-50deg);
+}
+
+
+section:hover::before {
+    right: -10em;
+    top: 21%;
+    transform: rotate(-20deg);
+}
+
+
+
+
+/* eyes */
+
+section>div>div:first-of-type {
+    width: 100%;
+    height: 40%;
+
+    position: relative;
+    top: 1.5em;
+}
+
+section>div>div:first-of-type>span {
+    height: 100%;
+    aspect-ratio: 1;
+
+    border-top: var(--inking-size) solid var(--inking);
+    border-radius: 50%;
+
+    background-color: white;
+
+    position: absolute;
+
+    display: grid;
+    justify-items: center;
+    align-content: center;
+
+    box-shadow: inset .3em .2em .3em var(--white-shadow);
+}
+
+section>div>div:first-of-type>span:first-of-type {
+    left: 10%;
+    border-left: var(--inking-size) solid var(--inking);
+}
+
+section>div>div:first-of-type>span:first-of-type::before {
+    content: "";
+    display: block;
+
+    width: 1em;
+    height: 5em;
+
+    border: solid calc(var(--inking-size)/2) var(--inking);
+    border-radius: 0 0 0 70%;
+    background-color: var(--hair);
+
+    position: absolute;
+    top: -40%;
+    left: 70%;
+    transform: rotate(-60deg);
+
+    box-shadow: inset -.2em -.2em .2em var(--hair-shadow);
+
+    transition: .5s;
+}
+
+/* الحواجب */
+
+section:hover>div>div:first-of-type>span:first-of-type::before {
+    transform: rotate(-40deg);
+    --hair: var(--kurama-eyes);
+    --hair-shadow: var(--kurama-eyes-shadow);
+}
+
+section>div>div:first-of-type>span:nth-of-type(2) {
+    right: 10%;
+    border-right: var(--inking-size) solid var(--inking);
+}
+
+section>div>div:first-of-type>span:nth-of-type(2)::before {
+    content: "";
+    display: block;
+
+    width: 1em;
+    height: 5em;
+
+    border: solid calc(var(--inking-size)/2) var(--inking);
+    border-radius: 0 0 70% 0;
+    background-color: var(--hair);
+
+    position: absolute;
+    top: -40%;
+    right: 70%;
+    transform: rotate(60deg);
+
+    box-shadow: inset -.2em -.2em .1em var(--hair-shadow);
+
+    transition: .5s;
+}
+
+section:hover>div>div:first-of-type>span:nth-of-type(2)::before {
+    transform: rotate(40deg);
+    --hair: var(--kurama-eyes);
+    --hair-shadow: var(--kurama-eyes-shadow);
+}
+
+section>div>div:first-of-type>span span {
+    display: block;
+
+    width: 80%;
+    aspect-ratio: 1;
+
+    border: solid calc(var(--inking-size)/2) var(--inking);
+    border-radius: 50%;
+
+    background-color: var(--eyes);
+
+    background-image: radial-gradient(black 30%, var(--eyes) 30% 50%, white);
+
+    box-shadow: inset -.2em -.5em .5em var(--eyes-shadow);
+}
+
+section:hover>div>div:first-of-type>span span {
+    background-image: var(--kurama);
+    box-shadow: var(--kurama-shadow);
+}
+
+section>div>div:first-of-type>span span::before {
+    content: "";
+    display: block;
+
+    width: 50%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+
+/* mouth */
+
+section>div>div:nth-of-type(2) {
+    width: 45%;
+    aspect-ratio: 2/1;
+
+    background-color: white;
+
+    border: solid calc(var(--inking-size)/2) var(--inking);
+    border-radius: 10% 10% 50% 50% / 0% 0% 100% 100%;
+
+    position: relative;
+    bottom: -11%;
+
+    box-shadow: inset .5em .5em .5em var(--white-shadow);
+
+    transform-origin: top;
+    transition: .3s;
+}
+
+section:hover>div div:nth-of-type(2) {
+
+    width: 25%;
+    height: 40%;
+    border-radius: 50%;
+
+}
+
+section>div div:nth-of-type(2)::before {
+    content: "";
+    display: block;
+
+    width: 60%;
+    height: 70%;
+
+    border: solid .2em var(--inking);
+    border-radius: 50%;
+
+    background-color: red;
+
+    position: absolute;
+    bottom: -.2em;
+    left: calc(50% - 60%/2);
+
+    box-shadow: inset 0 .6em .4em rgb(143, 0, 0);
+}
+
+
+
+
+
+
+
+
+
+/* hair */
+
+section>div div:nth-of-type(3) {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: -27em;
+    left: 0em;
+
+    display: grid;
+}
+
+
+section>div div:nth-of-type(3) span {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    transform: scale(1.35);
+
+
+    position: absolute;
+    left: -.5em;
+
+    z-index: 1;
+
+    clip-path: polygon(88% 100%, 100% 95%, 92% 82%, 100% 68%, 89% 64%, 92% 44%, 76% 48%, 70% 25%, 53% 41%, 40% 21%, 32% 46%, 14% 33%, 15% 60%, 0 63%, 11% 80%, 3% 90%, 15% 100%);
+}
+
+section>div div:nth-of-type(3) span:first-of-type {
+    background-color: var(--hair);
+    box-shadow: inset -2em -.7em 1em var(--hair-shadow),
+        inset 2em 7em 5em white;
+}
+
+section:hover>div div:nth-of-type(3) span:first-of-type {
+    background-color: var(--kurama-eyes);
+    box-shadow: inset -2em -.7em 1em var(--kurama-eyes-shadow),
+        inset 2em 7em 5em white;
+}
+
+
+section>div div:nth-of-type(3) span:nth-of-type(2) {
+    height: 101%;
+    transform: scale(1.39);
+
+    background-color: var(--inking);
+    z-index: 0;
+
+    position: absolute;
+    bottom: .2em;
+    left: -.5em;
+}
+
+
+
+/* oren */
+section>div div:nth-of-type(4) {
+    width: 100%;
+    height: 8em;
+
+    position: absolute;
+    top: 0;
+}
+
+section>div div:nth-of-type(4) span {
+    width: 4em;
+    height: 100%;
+    display: block;
+    background-color: var(--skin);
+
+    border: solid var(--inking-size) var(--inking);
+    border-radius: 74% 60% 0% 100% / 41% 52% 10% 90%;
+    position: absolute;
+    left: -4em;
+
+    box-shadow: inset 0 1.5em .4em var(--skin-shadow),
+        inset -.5em -.5em .4em var(--skin-shadow);
+
+    background-image: radial-gradient(at 100% 60%, var(--skin-shadow) 30%, var(--skin) 40%);
+}
+
+section>div div:nth-of-type(4) span:last-of-type {
+    /* --skin:blue; */
+    right: -4em;
+    left: auto;
+    transform: rotateY(180deg);
+
+    box-shadow: inset 0 1.5em .4em var(--skin-shadow),
+        inset -.5em -.5em .4em var(--skin-shadow);
+}
+
+
+
+
+
+
+
+
+/* Forehead protector */
+
+section>div div:last-of-type {
+    width: 110%;
+    height: 40%;
+
+    background-color: var(--protector);
+
+    border-radius: 1em;
+    border: solid var(--inking-size) var(--inking);
+
+    position: absolute;
+    top: -35%;
+
+    display: grid;
+    place-content: center;
+
+    box-shadow: inset .3em .3em .4em var(--white-shadow),
+        inset -.5em -.5em .4em var(--protector-shadow);
+
+}
+
+section>div div:last-of-type::before,
+section>div div:last-of-type::after {
+    content: "";
+    display: block;
+
+    width: 2em;
+    height: 7em;
+
+    position: absolute;
+    bottom: -117%;
+
+    border: solid var(--inking-size);
+    border-color: transparent var(--inking) var(--inking) var(--inking);
+    border-top: none;
+    background-color: var(--hair);
+}
+
+section>div div:last-of-type::before {
+    left: .4em;
+    border-radius: 0% 0% 0% 100% / 0% 0% 100% 100%;
+
+    box-shadow: inset -.4em .5em .2em var(--hair-shadow),
+        .3em .4em .2em var(--skin-shadow);
+}
+
+section>div div:last-of-type::after {
+    right: .4em;
+    border-radius: 0% 0% 100% 0% / 0% 0% 100% 100%;
+
+
+    box-shadow: inset -.4em .5em .2em var(--hair-shadow),
+        inset -.4em -.3em .2em var(--hair-shadow);
+}
+
+section:hover>div div:last-of-type::before,
+section:hover>div div:last-of-type::after {
+    background-color: var(--kurama-eyes);
+}
+
+section:hover>div div:last-of-type::before,
+section:hover>div div:last-of-type::after {
+    --hair-shadow: var(--kurama-eyes-shadow);
+}
+
+
+
+section>div div:last-of-type span {
+    display: block;
+
+    width: 15rem;
+    height: 6rem;
+
+    border: solid calc(var(--inking-size)/2) var(--inking);
+    border-radius: 1em;
+
+    background-color: rgb(221, 221, 221);
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Simbolo_konoha.svg/2048px-Simbolo_konoha.svg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+
+    box-shadow: inset .4em .5em .2em white,
+        inset -.4em -.5em .2em var(--white-shadow),
+        .2em .3em .1em var(--protector-shadow);
+}

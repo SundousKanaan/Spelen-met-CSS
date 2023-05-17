@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./pikastyle.css">
+</head>
+
+<body>
+    <section>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="oren">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="ogen">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="neus"> 
+            <div></div>
+        </div>
+        <div class="mond">
+            <div></div>
+            <div></div>
+            <div>
+
+            </div>
+        </div>
+        <div class="wangen">
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" display="none">
+        <defs>
+            <filter id="merge">
+                <feGaussianBlur stdDeviation="13"></feGaussianBlur>
+                <feColorMatrix mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="blob">
+                </feColorMatrix>
+                <feBlend in="SourceGraphic" in2="blob" out="blobbed"></feBlend>
+                <!-- <feGaussianBlur in="blobbed" stdDeviation="1" out="blurred"/> -->
+            </filter>
+        </defs>
+    </svg>
+
+    <svg>
+        <defs>
+          <filter id="border-text">
+            <!-- het alpha channel wordt 4px vergroot -->
+            <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="DILATED"/>
+            
+            <!-- de vergrote alpha wordt gemerged met de oorspronkelijke tekst -->
+            <feMerge>
+              <feMergeNode in="DILATED"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+            
+          </filter>
+        </defs>
+      </svg>
+</body>
+
+</html>
