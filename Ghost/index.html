@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <section>
+        <div class="head">
+            <div class="face">
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="edges">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+    </section>
+    <div class="shadow"></div>
+    <h1>Ghost-chan</h1>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" display="none">
+        <defs>
+            <filter id="merge">
+                <feGaussianBlur stdDeviation="13"></feGaussianBlur>
+                <feColorMatrix mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -6" result="blob">
+                </feColorMatrix>
+                <feBlend in="SourceGraphic" in2="blob" out="blobbed"></feBlend>
+                <!-- <feGaussianBlur in="blobbed" stdDeviation="1" out="blurred"/> -->
+            </filter>
+        </defs>
+    </svg>
+</body>
+
+</html>
